@@ -50,6 +50,14 @@ ul{
 .contact{
   background:	#FFFEF3;
 }
+.alert{
+  text-align: center;
+  padding:10px;
+  background:#79c879;
+  color:#fff;
+  margin-bottom:10px;
+  display:none;
+}
 
 /* FORM STYLES */
 .contact form{
