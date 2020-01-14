@@ -23,41 +23,51 @@
       </div>
       <div class="contact">
         <h3>Register</h3>
-        <form>
+
+        <div class="alert">Your message has been sent</div>
+        <form id="contactForm">
           <p>
             <label>Name</label>
-            <input type="text" name="name">
+            <input type="text" name="name" id="name">
           </p>
           <p>
             <label>Major & Year of Study</label>
-            <input type="text" name="major">
+            <input type="text" name="major" id="major">
           </p>
           <p>
             <label>Subjects Teaching</label>
-            <input type="text" name="teach">
+            <input type="text" name="teach"id=teach>
           </p>
           <p>
             <label>Available Days</label>
-            <input type="text" name="available">
+            <input type="text" name="available" id="available">
           </p>
           <p>
             <label>NTU Email Address</label>
-            <input type="email" name="email">
+            <input type="email" name="email" id="email">
           </p>
           <p>
             <label>Phone Number</label>
-            <input type="text" name="phone">
+            <input type="text" name="phone"id="phone">
           </p>
           <p class="full">
             <label>Description</label>
-            <textarea name="message" rows="5"></textarea>
+            <textarea name="message" rows="5" id="message"></textarea>
           </p>
           <p class="full">
             <button><a href= "cong.html" style="text-decoration: none; color:black">Submit</a></button>
           </p>
-        </form>
+        </formid="contactForm">
       </div>
     </div>
   </div>
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>  
+ 
+   <script src="main.js"></script>
 </body>
 </html>
