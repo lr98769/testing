@@ -6,23 +6,84 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Share Today</title>
     <style>
+        html, body { height: 100%; width: 100%; margin: 0; }
         body{
             background-color: #b7b7b7;
-            text-align: center;
+        }
+
+        section{
+            display: flex;
+            height: 80%;
+            flex-direction: row;
         }
 
         button{
             background-color: #f3f3f3;
-            border-radius: 2px;
+            border-radius: 10px;
             text-align: center;
-            height: 70%;
+            height: 80%;
+            border-color:black;
+            border-style: dashed;
+            border-width: 1px;
+            margin: auto;
             width: 30%;
         }
+        h2.title{
+            font-family: Oswald;
+            font-style: normal;
+            border-bottom: 2px solid;
+            width: 70%;
+            margin: auto;
+        }
+
+        h2.title.tutor{
+            border-color: dodgerblue;
+        }
+        h2.title.resources{
+            border-color:green;
+        }
+
+        h2.title.lecturer{
+            border-color:orange;
+        }
+
+        h5.description{
+            color:red;
+            font-family: Arial, Helvetica, sans-serif;
+            font-style: normal;
+            color: grey;
+            width: 80%;
+            margin-top: 5%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        img{
+            margin: auto;
+            width: 90%;
+        }
+
     </style>
 </head>
 <body>
-    <button><a href= "beATutor.html" style="text-decoration: none; color:black">BE A TUTOR</a></button>
-    <button><a href= "uploadResources.html" style="text-decoration: none; color:black">UPLOAD RESOURCES</a></button>
-    <button><a href= "uploadReview.html" style="text-decoration: none; color:black">LECTURER REVIEW</a></button>
+    <section>
+        <button><a href= "beATutor.html" style="text-decoration: none; color:black">
+            <img src="pictures/tutor.png">
+            <h2 class="title tutor">BE A TUTOR</h2>
+            <h5 class="description">Help peers that need help with course content</h5>
+        </a></button>
+        <button><a href= "uploadResources.html" style="text-decoration: none; color:black">
+            <img src="pictures/resource.png">
+            <h2 class="title resources">UPLOAD RESOURCES</h2>
+            <h5 class="description">Share helpful notes or mindmaps with your peers</h5>
+        </a></button>
+        <button><a href= "uploadReview.html" style="text-decoration: none; color:black">
+            <img src="pictures/lecturer.png">
+            <h2 class="title lecturer">LECTURER REVIEW</h2>
+            <h5 class="description">Share your opinions on lecturers here with your peers
+            </h5>
+            
+        </a></button>
+    </section>
 </body>
 </html>
