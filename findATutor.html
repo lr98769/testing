@@ -5,24 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="tut.css">
 </head>
 <body>
+    <input class = "teach"/>
     <h1>Cloud Cafe</h1>
-
-        <div class="content">
-
-
-            <ol id="tutor-list"></ol> 
-    
-
+    <h2 class="tutorsAvailable">Tutors Available</h2>
+    <div class="wrapper">
+        <div id="tutor-list"></div>
     </div>
-
-
+</div>
 
     <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>  
    
-     <script src="tutorList.js"></script>
+    <script src="tutorList.js"></script>
+    <script src="list.js"></script><meta charset=utf-8 />
+    <script type = "text/javascript">
+        var options = {
+            valueNames: ['teach']
+        };
+
+        var tutorList = new List('tutor-list', options);
+    </script>
+
 </body>
 </html>
