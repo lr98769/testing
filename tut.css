@@ -1,0 +1,62 @@
+*{
+    box-sizing: border-box;
+  }
+
+  body{
+    background:#FF8C00;
+    color:black;
+    line-height:normal;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  h2.tutorsAvailable{
+    text-align: left;
+    font-style: Oswald;
+    border-bottom: 0.5em;
+    border-color: dimgray;
+  }
+
+  ul{
+    list-style: none;
+    font-size: 1.5vw;
+    padding:0;
+  }
+  
+  .brand{
+    text-align: center;
+    font-size: 1.5vw;
+  }
+  
+  .wrapper{
+    background: white;
+    border-style: solid;
+    border-width: 0.5vw;
+    border-color:black;
+    font-size: 1.5vw;
+    padding: 1.5em;
+  }
+
+  h2.aboutMyself{
+    padding: 0;
+    color:rgba(255, 166, 0, 0.89);
+    text-decoration: underline;
+  }
+
+  .border{
+    border-style: solid;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-width: 0.3vw;
+    padding: 1vw;
+  }
+
+  li{
+    padding: 0.2vw;
+  }
+
+
+
+
+
+ 
