@@ -98,6 +98,7 @@ summitButton.style.visibility='hidden';
 //info to be stored in fairebase $$$$$$$$$$################
 var message=document.getElementById('message').value;
 var courseIndex=selected.innerHTML;
+var title=document.getElementById('title').value;
 console.log(fileURL);
 
 var reference=firebase.database().ref('learningMaterial')
@@ -106,7 +107,8 @@ var reference=firebase.database().ref('learningMaterial')
   console.log(fileURL);
       courseKey.set({
       message:message,
-      downloadLocation:fileURL
+      downloadLocation:fileURL,
+      title:title
         
 
       });
@@ -163,6 +165,15 @@ document.getElementById('message').value="";
     else
     {
       var newIndex = newIndexLower.toUpperCase();
+      var reference=firebase.database().ref('learningMaterial')
+
+  var courseKey=reference.child(newIndex).push()  // $$$$$$$$$$ it will create a child if it does not exist
+      courseKey.set({
+      emptyHead: true
+        
+
+      });
+      /*var newIndex = newIndexLower.toUpperCase();
       var lists = document.getElementById("addable_container");
 
 
@@ -180,6 +191,7 @@ document.getElementById('message').value="";
       optDiv.appendChild(mlabel);
       lists.appendChild(optDiv);
       document.getElementById('inPutIndex').value="";
+      */
 
     }
 
