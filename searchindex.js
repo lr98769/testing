@@ -154,26 +154,33 @@ document.getElementById('message').value="";
 
   function AddIndex()
   {
-    var newIndex=document.getElementById("inPutIndex").value;
-    if (newIndex==""|| newIndex==" ")
+    var newIndexLower=document.getElementById("inPutIndex").value;
+    if (newIndexLower==""|| newIndexLower==" ")
     {
       alert("must type in index number");
       return false;
     }
     else
     {
+      var newIndex = newIndexLower.toUpperCase();
+      var lists = document.getElementById("addable_container");
 
-      var reference = firebase.database().ref('learningMaterial')
-      var testing=reference.child(newIndex).push()  // $$$$$$$$$$ it will create a child if it does not exist
 
-      testing.set({
-        name: newIndex
+      var optDiv = document.createElement("div"); 
+      optDiv.setAttribute("class","option");
 
-      })
-      /*var newMessageRef = reference.push();
-      newMessageRef.set({
-       name:newIndex
-      });*/
+      var mlabel=document.createElement('label');
+      mlabel.innerHTML=newIndex;
+      var minput = document.createElement('input');
+      minput.type = 'text';
+      minput.setAttribute("class","radio")
+      minput.setAttribute("id",newIndex)
+      minput.setAttribute("name","category")
+      optDiv.appendChild(minput);
+      optDiv.appendChild(mlabel);
+      lists.appendChild(optDiv);
+      document.getElementById('inPutIndex').value="";
+
     }
 
 
