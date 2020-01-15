@@ -98,6 +98,7 @@ summitButton.style.visibility='hidden';
 //info to be stored in fairebase $$$$$$$$$$################
 var message=document.getElementById('message').value;
 var courseIndex=selected.innerHTML;
+var title=document.getElementById('title').value;
 console.log(fileURL);
 
 var reference=firebase.database().ref('learningMaterial')
@@ -106,7 +107,8 @@ var reference=firebase.database().ref('learningMaterial')
   console.log(fileURL);
       courseKey.set({
       message:message,
-      downloadLocation:fileURL
+      downloadLocation:fileURL,
+      title:title
         
 
       });
@@ -154,26 +156,43 @@ document.getElementById('message').value="";
 
   function AddIndex()
   {
-    var newIndex=document.getElementById("inPutIndex").value;
-    if (newIndex==""|| newIndex==" ")
+    var newIndexLower=document.getElementById("inPutIndex").value;
+    if (newIndexLower==""|| newIndexLower==" ")
     {
       alert("must type in index number");
       return false;
     }
     else
     {
+      var newIndex = newIndexLower.toUpperCase();
+      var reference=firebase.database().ref('learningMaterial')
 
-      var reference = firebase.database().ref('learningMaterial')
-      var testing=reference.child(newIndex).push()  // $$$$$$$$$$ it will create a child if it does not exist
+  var courseKey=reference.child(newIndex).push()  // $$$$$$$$$$ it will create a child if it does not exist
+      courseKey.set({
+      emptyHead: true
+        
 
-      testing.set({
-        name: newIndex
+      });
+      /*var newIndex = newIndexLower.toUpperCase();
+      var lists = document.getElementById("addable_container");
 
-      })
-      /*var newMessageRef = reference.push();
-      newMessageRef.set({
-       name:newIndex
-      });*/
+
+      var optDiv = document.createElement("div"); 
+      optDiv.setAttribute("class","option");
+
+      var mlabel=document.createElement('label');
+      mlabel.innerHTML=newIndex;
+      var minput = document.createElement('input');
+      minput.type = 'text';
+      minput.setAttribute("class","radio")
+      minput.setAttribute("id",newIndex)
+      minput.setAttribute("name","category")
+      optDiv.appendChild(minput);
+      optDiv.appendChild(mlabel);
+      lists.appendChild(optDiv);
+      document.getElementById('inPutIndex').value="";
+      */
+
     }
 
 
