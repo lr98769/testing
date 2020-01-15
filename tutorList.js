@@ -48,14 +48,6 @@ for (var i=0;i<keys.length;i++) //no. of entries
   var aboutMyselfText = document.createTextNode("About Myself");
   aboutMyself.appendChild(aboutMyselfText); 
   ul.appendChild(aboutMyself);
-
-  // name =  "Name: " + name;
-  // major = "Major and Year of Study: " + major;
-  // teach = "Subjects teaching: " + teach;
-  // available = "Available Days: " + available;
-  // email = "NTU email address: " + email;
-  // phone = "Phone Number: " + phone;
-  // message = "Description: "+ message;
   
   function createListItem(span, text, className){
     var li = document.createElement("li");
@@ -66,6 +58,8 @@ for (var i=0;i<keys.length;i++) //no. of entries
     sn2.className = className;
     li.appendChild(sn);
     li.appendChild(sn2);
+    li.className = "list";
+    li.className = className + "list";
     return li;
   };
 
@@ -90,7 +84,7 @@ for (var i=0;i<keys.length;i++) //no. of entries
   });
 
   div.appendChild(ul);
-  // div.setAttribute("id", "tutors");
+  // div.setAttribute("class", "tut");
 
   
   
