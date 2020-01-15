@@ -23,6 +23,7 @@ for (var i=0;i<keys.length;i++)
 
     var k=keys[i];
     var name=scores[k].name;
+    console.log(name)
     var phone=scores[k].phone;
     // add all and format it in a list ......****************************************** look here
     var ul = document.getElementById("tutor-list");
