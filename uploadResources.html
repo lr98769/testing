@@ -1,12 +1,68 @@
+
+<!-- search function is adapted from here 
+  https://github.com/Godsont/Custom-Select-Box -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700" rel="stylesheet">
+
+	<script src="https://use.fontawesome.com/939e9dd52c.js"></script>
+  <link rel="stylesheet" href="searchindex.css">
     <title>Document</title>
 </head>
 <body>
-    upload resources
+    <div class="mainDiv" align="center">
+		<progress id="uploader" value="0" max="100">0%</progress>
+    <input type="file" id="fileButton" value="upload"/></div>
+    <div align="center" ><textarea  name="message" rows="5" placeholder="write a short intro about your learning resources" id="message"></textarea> </div>
+   
+
+    <div class="container" align="center">
+
+      <div class="select-box">
+        <div class="options-container">
+
+
+        
+          <div class="option">
+            <input type="radio" class="radio" id="CZ1007" name="category" />
+            <label for="CZ1007">CZ1007</label>
+          </div>
+
+          <div class="option">
+            <input type="radio" class="radio" id="travel" name="category" />
+            <label for="travel">Travel & Events</label>
+          </div>
+
+        </div>
+        <div class="selected">
+          Select Courses Index
+        </div>
+
+        <div class="search-box">
+          <input type="text" placeholder="Start Typing..." />
+        </div>
+      </div>
+    </div>
+
+    <button type="button" id="uploadButton" class=" btn-primary" onclick="uploadFile(); return false;">SUBMIT</button>
+    <!-- button id is given so we only show button after file is being uploaded -->
+    <div class="alert" style="text-align: center; padding:10px; background:#79c879;color:#fff;margin-bottom:10px;display:none;">
+    Your file has been uploaded</div>
+
+
+<div>
+    <input type="text" size='35' style="text-transform: uppercase"id="inPutIndex" name="inPutIndex" placeholder="typeindex if not in the list ">
+    <button type="submit" onclick="AddIndex()">Submit</button>
+  </div>
+
+
+    
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+    <script src="searchindex.js"></script>
 </body>
 </html>

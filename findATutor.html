@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="tut.css">
 </head>
 <body>
-    <input class = "teach"/>
-    <h1>Cloud Cafe</h1>
+    <input type = "text" id = "filterInput" placeholder = "Search Courses..."/>
     <h2 class="tutorsAvailable">Tutors Available</h2>
     <div class="wrapper">
         <div id="tutor-list"></div>
@@ -21,13 +20,32 @@
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>  
    
     <script src="tutorList.js"></script>
-    <script src="list.js"></script><meta charset=utf-8 />
-    <script type = "text/javascript">
-        var options = {
-            valueNames: ['teach']
-        };
+    
+    <script>
+        //Get input element
+        let filterInput = document.getElementById('filterInput');
+        //add event listener
+        filterInput.addEventListener('keyup', filterNames);
 
-        var tutorList = new List('tutor-list', options);
+        function filterNames(){
+            //Get value of input
+            let filterValue = document.getElementById('filterInput').value.toUpperCase();
+        
+            let ul = document.getElementById('tutor-list');
+            //Get lis from ul
+            let border = ul.querySelectorAll('ul.border');
+            //loop through span.teach spans
+            for (let i = 0; i < border.length; i++){
+                let teach = border[i].getElementsByTagName("span")[5]; 
+                //if matches
+                if (teach.innerText.toUpperCase().indexOf(filterValue) > -1){
+                    border[i].style.display = '';
+                } else {
+                    border[i].style.display = 'none';
+                }
+            }
+        }
+
     </script>
 
 </body>
