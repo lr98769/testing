@@ -115,7 +115,9 @@ summitButton.style.visibility='visible';
 })
 
 function uploadFile()
+
 {
+
   var fileName=file.name;
 var storageRef = firebase.storage().ref('/resources'+fileName);
 var task = storageRef.put(file);
@@ -130,6 +132,11 @@ task.on('state_changed', function progress(snapshot) {
   console.log("ok it is done")
   uploader.value=0;
   document.querySelector('.alert').style.display = 'block';
+  var message=document.getElementById('message').value;
+console.log(message)
+var title=document.getElementById('title').value;
+alert(title)
+
   task.snapshot.ref.getDownloadURL().then(function(downloadURL) {
 fileURL=downloadURL
 summitButton.style.visibility='hidden'; 
@@ -138,15 +145,16 @@ summitButton.style.visibility='hidden';
 
 // u need to put the below code below as it takes a while to get new url
 //info to be stored in fairebase $$$$$$$$$$################
-var message=document.getElementById('message').value;
-var courseIndex=selected.innerHTML;
-var title=document.getElementById('title').value;
-console.log(fileURL);
 
+
+var courseIndex=selected.innerHTML;
+
+
+console.log("message is "+message)
+console.log("title is ",title)
 var reference=firebase.database().ref('learningMaterial')
 
   var courseKey=reference.child(courseIndex).push()  // $$$$$$$$$$ it will create a child if it does not exist
-  console.log(fileURL);
       courseKey.set({
       message:message,
       downloadLocation:fileURL,

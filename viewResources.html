@@ -1,7 +1,5 @@
+
 <!-- filter function is adapted from here www.w3schools.com/howto/howto_js_filter_lists.asp-->
-
-
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -10,38 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="viewResources.css">
+    
     <title>Document</title>
 </head>
 <body>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="typein Course Index to get resources">
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Type in Course Index to get resources">
 
     <div id="myUL">
 
 
-      <div class="courseRes">
-
-        <button type="button" class="collapsible">CZ1007</button>
-    <div class="content">
-      <p>Lorem ipsum...</p>
-    </div>
-
-        </div>
-
-
-
-      <div class="courseRes">
-        <button type="button" class="collapsible">CZ1008</button>
-    <div class="content">
-      <p>Lorem ipsum...</p>
-      <p>Lorem ipsum...</p>
-    </div>
-        </div>
-
-
         <div class="courseRes">
-          <button type="button" class="collapsible">CZ1003</button>
+          <button type="button" class="collapsible">Internet error :(, check internet connection </button>
       <div class="content">
-        <p>Lorem ipsum...</p>
+        <p>internet error, check internet connection</p>
       </div>
           </div>
 
@@ -54,9 +33,10 @@
 
 
 
-
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
     <script>
-var coll = document.getElementsByClassName("collapsible");
+      
+var coll;
 var i;
 
 var summitButton=document.getElementById('uploadButton');
@@ -84,43 +64,70 @@ var summitButton=document.getElementById('uploadButton');
 
       const lists = document.getElementById("myUL");
 
+            // everytime their is a new stuff being added, remove all the child in addable_container,
+      // there is no repeated adding stuff. 
+      while (lists.firstChild) {
+        lists.removeChild(lists.firstChild);
+      }
+
 
 
 
       for (var i=0;i<keys.length;i++)
+      //keys means the keys of dictionary. 
     {
-    console.log(keys[i]) //keys[i] type is string
+    //console.log(keys[i]) //keys[i] type is string
     k=keys[i];
+    //console.log(scores[k]) //scores[k] also forms dictionary of all files in one course
+    var keysOfNotes=Object.keys(scores[k])
+    console.log(keysOfNotes)  // keysOfNotes stores the keys to dictionary of lists of notes
+
     
     //create courseindex div
-          var courseDiv = document.createElement("div"); 
+    var courseDiv = document.createElement("div"); 
           courseDiv.setAttribute("class","courseRes");
     //create button
           var mbutton=document.createElement('button');
           mbutton.type = 'button';
           mbutton.setAttribute("class","collapsible")
           mbutton.innerHTML=k;
-
-//create content. 
-      var courseContent = document.createElement("div"); 
-
-//create hyperlink to download file.
+    //create content. 
+    var courseContent = document.createElement("div"); 
+    courseContent.setAttribute("class","content");
+    
+    for (var j=0;j<keysOfNotes.length;j++) // in one course
+    {
+    
+    notesinfo=scores[k][keysOfNotes[j]]
+    if (!("emptyHead" in notesinfo))
+    {
+      console.log(notesinfo)
+      //create hyperlink to download file.
       var a = document.createElement('a');
-      a.setAttribute('href',scores[k].downloadLocation);
-      a.innerHTML = scores[k].title;
+      a.setAttribute('href',notesinfo.downloadLocation);
+      a.setAttribute("download",notesinfo.title);
+      a.innerHTML = notesinfo.title;
 
 //create description.
 var p = document.createElement('p');
-p.innerHTML=scores[k].message;
+p.innerHTML=notesinfo.message;
 
 
           courseContent.appendChild(a);
           courseContent.appendChild(p);
+
+    }
+    }
+
           courseDiv.appendChild(mbutton);
           courseDiv.appendChild(courseContent);
           lists.appendChild(courseDiv);
     
     }
+
+coll=document.getElementsByClassName("collapsible");
+
+
 
 for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function() {
@@ -133,7 +140,12 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
-        function myFunction() {
+
+      }
+
+
+// search function should be outside gotData() function, otherwise it cannot be found. 
+      function myFunction() {
           // Declare variables
           var input, filter, ul, li, a, i, txtValue;
           input = document.getElementById('myInput');
@@ -155,8 +167,6 @@ for (i = 0; i < coll.length; i++) {
             }
           }
         }
-
-      }
 
 
    </script>
