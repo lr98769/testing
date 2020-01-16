@@ -23,29 +23,35 @@
       </div>
       <div class="contact">
         <h3>Course Review</h3>
-        <form>
+        <div class="alert">Your message has been sent</div>
+        <form id=contactForm>
           <p>
             <label class = "review">Name of Student</label>
-            <input class = "review" type="text" name="name">
+            <input class = "review" type="text" name="name" id="name" required>
           </p>
           <p>
             <label class = "review">Course Index</label>
-            <input class = "review" type="text" name="index">
+            <input class = "review" type="text" name="index" id="courseindex" required>
           </p>
           <p>
             <label class = "review">Study Tips</label>
-            <textarea class = "review" type="text" name="course" rows="5"></textarea>
+            <textarea class = "review" type="text" name="course" rows="5" id="studyTips" required></textarea>
           </p>
           <p class="full">
             <label class = "review">Description</label>
-            <textarea class = "review" name="message" rows="5"></textarea>
+            <textarea class = "review" name="message" rows="5" id="info" required></textarea>
           </p>
           <p class="full review">
-            <button class = "review"><a href= "Captured.html">Submit</a></buttonclass = "review">
+            <button  type="submit" >Submit</button  >
           </p>
         </form>
       </div>
     </div>
   </div>
+
+  <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script> 
+   <script src="uploadReview.js"></script>
 </body>
 </html>
