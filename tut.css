@@ -9,13 +9,6 @@
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 
-  h2.tutorsAvailable{
-    text-align: left;
-    font-style: Oswald;
-    border-bottom: 0.5em;
-    border-color: dimgray;
-  }
-
   ul{
     list-style: none;
     font-size: 1.5vw;
@@ -34,6 +27,11 @@
     border-color:black;
     font-size: 1.5vw;
     padding: 1.5em;
+  }
+
+  h2.tut{
+    color:rgb(39, 37, 37);
+    font-family: Oswald;
   }
 
   h2.aboutMyself{
@@ -55,6 +53,9 @@
     padding: 0.2vw;
   }
 
+  input{
+    margin-bottom: 1vw;
+  }
 
 
 
