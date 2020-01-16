@@ -29,16 +29,9 @@
     padding: 1.5em;
   }
 
-  h2.tut{
+  h2.course{
     color:rgb(39, 37, 37);
     font-family: Oswald;
-  }
-
-  h2.aboutMyself{
-    padding: 0;
-    font-size: 3vw;
-    color:rgba(255, 166, 0, 0.89);
-    text-decoration: underline;
   }
 
   .border{
@@ -47,31 +40,21 @@
     border-left: 0;
     border-right: 0;
     border-width: 0.3vw;
-    padding-bottom: 2vw;
+    padding: 1vw;
   }
 
   li{
     padding: 0.2vw;
-    font-size: 2.5vw;
   }
 
   input{
     margin-bottom: 1vw;
   }
 
-  @media(min-width:700px){
-    li{
-      font-size: 1vw;
-      padding: 0.1vw;
-    }
-    h2.aboutMyself{
-      font-size: 1.5vw;
-    }
-    .border{
-      padding-bottom:1vw;
-    }
-    
+  li.NameStu{
+    color: orange;
   }
+
 
 
 

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="review.css">
+</head>
+<body>
+    <h2 class="course">Course Reviews</h2>
+    <input type = "text" id = "filterInputIndex" placeholder = "Search Courses Index..."/>
+    <div class="wrapper">
+        <div id="review-list"></div>
+    </div>
+</div>
+
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>  
+   
+    <script src="reviewList.js"></script>
+    
+    <script>
+          // 1.NameStu
+          // 2.CourseIndex
+          // 3.StudyTips
+          // 4.LecRev
+        //Get input element
+        let filterInput = document.getElementById('filterInputIndex');
+        //add event listener
+        filterInput.addEventListener('keyup', filterNames);
+
+        function filterNames(){
+            //Get value of input
+            let filterValue = document.getElementById('filterInputIndex').value.toUpperCase();
+        
+            let ul = document.getElementById('review-list');
+            //Get lis from ul
+            let border = ul.querySelectorAll('ul.border');
+            //loop through span.teach spans
+            for (let i = 0; i < border.length; i++){
+                let teach = border[i].getElementsByTagName("span")[3]; 
+                //if matches
+                if (teach.innerText.toUpperCase().indexOf(filterValue) > -1){
+                    border[i].style.display = '';
+                } else {
+                    border[i].style.display = 'none';
+                }
+            }
+        }
+
+    </script>
+
+</body>
+</html>
