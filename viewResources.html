@@ -1,5 +1,4 @@
-<!-- filter function is adapted from here 
-https://www.w3schools.com/howto/howto_js_filter_lists.asp -->
+<!-- filter function is adapted from here www.w3schools.com/howto/howto_js_filter_lists.asp-->
 
 
 
@@ -13,19 +12,42 @@ https://www.w3schools.com/howto/howto_js_filter_lists.asp -->
     <title>Document</title>
 </head>
 <body>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="typein Course Index to get resources">
 
-    <ul id="myUL">
-      <li><a href="#">Adele</a></li>
-      <li><a href="#">Agnes</a></li>
-    
-      <li><a href="#">Billy</a></li>
-      <li><a href="#">Bob</a></li>
-    
-      <li><a href="#">Calvin</a></li>
-      <li><a href="#">Christina</a></li>
-      <li><a href="#">Cindy</a></li>
-    </ul>
+    <div id="myUL">
+
+
+      <div class="courseRes">
+
+        <button type="button" class="collapsible">CZ1007</button>
+    <div class="content">
+      <p>Lorem ipsum...</p>
+    </div>
+
+        </div>
+
+
+
+      <div class="courseRes">
+        <button type="button" class="collapsible">CZ1008</button>
+    <div class="content">
+      <p>Lorem ipsum...</p>
+      <p>Lorem ipsum...</p>
+    </div>
+        </div>
+
+
+        <div class="courseRes">
+          <button type="button" class="collapsible">CZ1003</button>
+      <div class="content">
+        <p>Lorem ipsum...</p>
+      </div>
+          </div>
+
+
+
+    </div>
+
 
 
 
@@ -33,18 +55,50 @@ https://www.w3schools.com/howto/howto_js_filter_lists.asp -->
 
 
     <script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+var summitButton=document.getElementById('uploadButton');
+
+      //summitButton.style.visibility='hidden'; // hide the submit button
+      var config = {
+    apiKey: "AIzaSyB-ppxnmmh9N7Yh9Hvd4Dv654XCZxAwFdY",
+    authDomain: "test-165e8.firebaseapp.com",
+    databaseURL: "https://test-165e8.firebaseio.com",
+    projectId: "test-165e8",
+    storageBucket: "test-165e8.appspot.com",
+    messagingSenderId: "24442279561",
+    appId: "1:24442279561:web:60e21c29414ab066279858",
+    measurementId: "G-Z48JHZJXX3"
+};
+      firebase.initializeApp(config);
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
         function myFunction() {
           // Declare variables
           var input, filter, ul, li, a, i, txtValue;
           input = document.getElementById('myInput');
           filter = input.value.toUpperCase();
+
           ul = document.getElementById("myUL");
-          li = ul.getElementsByTagName('li');
+          li = document.getElementsByClassName("courseRes");
         
           // Loop through all list items, and hide those who don't match the search query
           for (i = 0; i < li.length; i++) {
-            a = li[i].getElementsByTagName("a")[0];
-            txtValue = a.textContent || a.innerText;
+            //console.log(li[i])
+            a = li[i].getElementsByTagName("button")[0];
+            txtValue = a.innerHTML;
+            //console.log(txtValue);
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
               li[i].style.display = "";
             } else {
@@ -52,6 +106,62 @@ https://www.w3schools.com/howto/howto_js_filter_lists.asp -->
             }
           }
         }
+
+
+
+
+
+
+        var MaterialRef = firebase.database().ref('learningMaterial');
+      MaterialRef.on('value',gotData)
+      function gotData(data){
+      var scores=data.val();// it is a dictionary
+      var keys=Object.keys(scores);
+      console.log(keys);
+
+      const lists = document.getElementById("myUL");
+
+
+
+
+      for (var i=0;i<keys.length;i++)
+    {
+    console.log(keys[i]) //keys[i] type is string
+    k=keys[i];
+    
+    //create courseindex div
+          var courseDiv = document.createElement("div"); 
+          courseDiv.setAttribute("class","courseRes");
+    //create button
+          var mbutton=document.createElement('button');
+          mbutton.type = 'button';
+          mbutton.setAttribute("class","collapsible")
+          mbutton.innerHTML=k;
+
+//create content. 
+      var courseContent = document.createElement("div"); 
+
+//create hyperlink to download file.
+      var a = document.createElement('a');
+      a.setAttribute('href',scores[]);
+      a.innerHTML = desiredText;
+          minput.setAttribute("id",keys[i])
+          minput.setAttribute("name","category")
+          optDiv.appendChild(minput);
+          optDiv.appendChild(mlabel);
+          lists.appendChild(optDiv);
+    
+    }
+
+
+
+
+
+
+
+
+
+
         </script>
 </body>
 </html>
