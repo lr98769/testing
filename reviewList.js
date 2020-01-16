@@ -12,7 +12,7 @@ firebase.initializeApp(config);
 
 
 
-var messagesRef = firebase.database().ref('tutorInfo');
+var messagesRef = firebase.database().ref('lectureReview');
 messagesRef.on('value',gotData)
 function gotData(data){
 var scores=data.val();// it is a dictionary
@@ -27,10 +27,10 @@ for (var i=0;i<keys.length;i++) //no. of entries
           // 3.StudyTips
           // 4.LecRev
     var k=keys[i];
-    var NameStu=scores[k].NameStu;
-    var CourseIndex=scores[k].CourseIndex;
-    var StudyTips=scores[k].StudyTips;
-    var LecRev=scores[k].LecRev;
+    var NameStu=scores[k].name;
+    var CourseIndex=scores[k].index;
+    var StudyTips=scores[k].tips;
+    var LecRev=scores[k].info;
     
     // add all and format it in a list ......****************************************** look here
     var div = document.getElementById("review-list");
@@ -45,6 +45,7 @@ for (var i=0;i<keys.length;i++) //no. of entries
     var sn2 = document.createElement("span");
     sn.textContent = span;
     sn2.textContent = text;
+    sn.className = "head";
     sn2.className = className;
     li.appendChild(sn);
     li.appendChild(sn2);

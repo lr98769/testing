@@ -135,7 +135,6 @@ task.on('state_changed', function progress(snapshot) {
   var message=document.getElementById('message').value;
 console.log(message)
 var title=document.getElementById('title').value;
-alert(title)
 
   task.snapshot.ref.getDownloadURL().then(function(downloadURL) {
 fileURL=downloadURL
@@ -219,12 +218,26 @@ document.getElementById('title').value="";
       var newIndex = newIndexLower.toUpperCase();
       var reference=firebase.database().ref('learningMaterial')
 
-  var courseKey=reference.child(newIndex).push()  // $$$$$$$$$$ it will create a child if it does not exist
-      courseKey.set({
-      emptyHead: true
-        
+      reference.once('value', function(snapshot) {
+        //https://firebase.google.com/docs/reference/node/firebase.database.DataSnapshot
+        if (snapshot.hasChild(newIndex)) {
+          alert(newIndex+" already exists");
+        }
+
+        else
+        {
+          var courseKey=reference.child(newIndex).push()  // $$$$$$$$$$ it will create a child if it does not exist
+          courseKey.set({
+          emptyHead: true
+            
+    
+          });
+        }
+
 
       });
+
+
       document.getElementById('inPutIndex').value="";
       /*var newIndex = newIndexLower.toUpperCase();
       var lists = document.getElementById("addable_container");
