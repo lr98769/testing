@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="tut.css">
 </head>
 <body>
-    <input type = "text" id = "filterInput" placeholder = "Search Courses..."/>
-    <h2 class="tutorsAvailable">Tutors Available</h2>
+    <h2 class="tut">Tutors Available</h2>
+    <input type = "text" id = "filterInput1" placeholder = "Search Courses..."/>
+    <input type = "text" id = "filterInput2" placeholder = "Search Days..."/>
+    
     <div class="wrapper">
         <div id="tutor-list"></div>
     </div>
@@ -23,13 +25,13 @@
     
     <script>
         //Get input element
-        let filterInput = document.getElementById('filterInput');
+        let filterInput = document.getElementById('filterInput1');
         //add event listener
         filterInput.addEventListener('keyup', filterNames);
 
         function filterNames(){
             //Get value of input
-            let filterValue = document.getElementById('filterInput').value.toUpperCase();
+            let filterValue = document.getElementById('filterInput1').value.toUpperCase();
         
             let ul = document.getElementById('tutor-list');
             //Get lis from ul
@@ -39,6 +41,32 @@
                 let teach = border[i].getElementsByTagName("span")[5]; 
                 //if matches
                 if (teach.innerText.toUpperCase().indexOf(filterValue) > -1){
+                    border[i].style.display = '';
+                } else {
+                    border[i].style.display = 'none';
+                }
+            }
+        }
+
+        //Get input element
+        let filterInput2 = document.getElementById('filterInput2');
+        //add event listener
+        filterInput2.addEventListener('keyup', filterDays);
+
+        function filterDays(){
+            //Get value of input
+            let filterValue2 = document.getElementById('filterInput2').value.toUpperCase();
+            
+            let ul = document.getElementById('tutor-list');
+            
+            //Get lis from ul
+            let border = ul.querySelectorAll('ul.border');
+
+            //loop through span.teach spans
+            for (let i = 0; i < border.length; i++){
+                let day = border[i].getElementsByTagName("span")[7]; 
+                //if matches
+                if (day.innerText.toUpperCase().indexOf(filterValue2) > -1){
                     border[i].style.display = '';
                 } else {
                     border[i].style.display = 'none';
