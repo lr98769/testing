@@ -2,7 +2,7 @@ const selected = document.querySelector(".selected");
 const optionsContainer = document.querySelector(".options-container");
 const searchBox = document.querySelector(".search-box input");
 
-const optionsList = document.querySelectorAll(".option");
+var optionsList
 
 var file;
 var fileURL;
@@ -21,6 +21,54 @@ var fileURL;
       firebase.initializeApp(config);
 
 
+      var MaterialRef = firebase.database().ref('learningMaterial');
+      MaterialRef.on('value',gotData)
+      function gotData(data){
+      var scores=data.val();// it is a dictionary
+      var keys=Object.keys(scores);
+      console.log(keys);
+
+      // everytime their is a new stuff being added, remove all the child in addable_container,
+      // there is no repeated adding stuff. 
+      const lists = document.getElementById("addable_container");
+      while (lists.firstChild) {
+        lists.removeChild(lists.firstChild);
+      }
+    
+    for (var i=0;i<keys.length;i++)
+    {
+    console.log(keys[i]) //keys[i] type is string
+    
+          var optDiv = document.createElement("div"); 
+          optDiv.setAttribute("class","option");
+          //optDiv.setAttribute("style","display:block")
+    
+          var mlabel=document.createElement('label');
+          mlabel.innerHTML=keys[i];
+          var minput = document.createElement('input');
+          minput.type = 'radio';
+          minput.setAttribute("class","radio")
+          minput.setAttribute("id",keys[i])
+          minput.setAttribute("name","category")
+          optDiv.appendChild(minput);
+          optDiv.appendChild(mlabel);
+          lists.appendChild(optDiv);
+    
+    }
+
+    optionsList= document.querySelectorAll(".option");
+
+
+optionsList.forEach(o => {
+  o.addEventListener("click", () => {
+    selected.innerHTML = o.querySelector("label").innerHTML;
+    optionsContainer.classList.remove("active");
+    console.log(selected.innerHTML,"i am selected")
+  });
+});
+    
+    
+      }
 
 
 
@@ -36,13 +84,7 @@ selected.addEventListener("click", () => {
   }
 });
 
-optionsList.forEach(o => {
-  o.addEventListener("click", () => {
-    selected.innerHTML = o.querySelector("label").innerHTML;
-    optionsContainer.classList.remove("active");
-    console.log(selected.innerHTML,"i am selected")
-  });
-});
+
 
 searchBox.addEventListener("keyup", function(e) {
   filterList(e.target.value);
@@ -73,7 +115,9 @@ summitButton.style.visibility='visible';
 })
 
 function uploadFile()
+
 {
+
   var fileName=file.name;
 var storageRef = firebase.storage().ref('/resources'+fileName);
 var task = storageRef.put(file);
@@ -88,6 +132,11 @@ task.on('state_changed', function progress(snapshot) {
   console.log("ok it is done")
   uploader.value=0;
   document.querySelector('.alert').style.display = 'block';
+  var message=document.getElementById('message').value;
+console.log(message)
+var title=document.getElementById('title').value;
+alert(title)
+
   task.snapshot.ref.getDownloadURL().then(function(downloadURL) {
 fileURL=downloadURL
 summitButton.style.visibility='hidden'; 
@@ -96,15 +145,16 @@ summitButton.style.visibility='hidden';
 
 // u need to put the below code below as it takes a while to get new url
 //info to be stored in fairebase $$$$$$$$$$################
-var message=document.getElementById('message').value;
-var courseIndex=selected.innerHTML;
-var title=document.getElementById('title').value;
-console.log(fileURL);
 
+
+var courseIndex=selected.innerHTML;
+
+
+console.log("message is "+message)
+console.log("title is ",title)
 var reference=firebase.database().ref('learningMaterial')
 
   var courseKey=reference.child(courseIndex).push()  // $$$$$$$$$$ it will create a child if it does not exist
-  console.log(fileURL);
       courseKey.set({
       message:message,
       downloadLocation:fileURL,
@@ -131,6 +181,8 @@ document.querySelector('.alert').style.display = 'none';
 //document.getElementById('fileButton').reset();
 document.getElementById("fileButton").value = "";
 document.getElementById('message').value="";
+document.getElementById('title').value="";
+
 //upload other info to dataBase
 
 
@@ -173,6 +225,7 @@ document.getElementById('message').value="";
         
 
       });
+      document.getElementById('inPutIndex').value="";
       /*var newIndex = newIndexLower.toUpperCase();
       var lists = document.getElementById("addable_container");
 
@@ -198,3 +251,4 @@ document.getElementById('message').value="";
 
 
   }
+
