@@ -1,6 +1,9 @@
 
 <!-- search function is adapted from here 
-  https://github.com/Godsont/Custom-Select-Box -->
+  https://github.com/Godsont/Custom-Select-Box 
+https://stackoverflow.com/questions/572768/styling-an-input-type-file-button/25825731#25825731
+https://jsfiddle.net/gu01bmfh/1/
+-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,66 +18,58 @@
   
 </head>
 <body>
-  <div class="container">
-    <h1 class="brand"><span>Upload</span> Resources</h1>
-    <em class="brand1">"If you have knowledge, let others light their candles in it"<br> Margaret Fuller</em>
-  
+    <div class="mainDiv" align="center">
 
-  <div class="wrapper">
-      <div class="mainDiv" align="left">
-      <progress class = "uploader" id="uploader" value="0" max="100">0%</progress>
-      <input class = "choose"type="file" id="fileButton" value="upload"/></div>
       
-      <div class="title" align="left"><label>Title:<img src="pictures/books.png" width=250 height=250 align="right"/></label>
-      <input type="text" name="title" id="title">   
-      <div class="descrip" align="left" ><textarea name="message" placeholder="write a short intro about your learning resources..." class="textinput" id="message"></textarea></div>
-  
-      <div align="left">
-  
-        <div class="select-box">
-          <div class="options-container" id="addable_container">
-            <div class="option">
-              <input type="radio" class="radio" id="CZ1007" name="category" />
-              <label>CZ1007</label>
-            </div>
-  
-            <div class="option">
-              <input type="radio" class="radio" id="travel" name="category" />
-              <label>Travel & Events</label>
-            </div>
-  
+
+      <label for="fileButton" class="custom-file-upload">
+        <i class="fa fa-cloud-upload"></i> Notes Upload
+    </label>
+    <input id="fileButton" value="upload" type="file"/>
+    <progress id="uploader" max="100" value="0">0%</progress>
+
+
+
+    
+    <input type="file" size=60 id="fileButton" value="upload"/></div>
+    
+    <div ><textarea class="input" name="message" rows="5" placeholder="write a short intro about your learning resources" id="message" required></textarea> </div>
+    <div ><input class="input" type="text" size='35' id="title" name="title" placeholder=" title for your file " required>
+    </div>
+
+    <div align="center">
+
+      <div class="select-box">
+        <div class="options-container" id="addable_container">
+
+
+          <div class="option">
+            <input type="radio" class="radio" id="travel" name="category" />
+            <label style="color:red">check your internet</label>
           </div>
-          
-          <div class="selected">
-            Select Courses Index
-          </div>
-  
-          <div class="search-box">
-            <input type="text" placeholder="Start Typing..." />
-          </div>
-  
+
         </div>
+        <div class="selected">
+          Select Courses Index
+        </div>
+
+        <div class="search-box">
+          <input type="text" placeholder="Start Typing..." />
+        </div>
+
       </div>
     </div>
 
-  <div>
-    <input class = "typeindex" type="text" size='35' style="text-transform: uppercase"id="inPutIndex" name="inPutIndex" placeholder="type index if not in the list ">
-    <button class = "addinto" type="submit" onclick="AddIndex()">Add into courseList</button>
-  </div>
-
-  <button type="button" id="uploadButton" class=" btn-primary" onclick="uploadFile(); return false;">SUBMIT</button>
+    <button type="button" id="uploadButton" class="block" onclick="uploadFile(); return false;">SUBMIT</button>
     <!-- button id is given so we only show button after file is being uploaded -->
-    <div class="alert" style="text-align: center; padding:10px; background:#79c879;color:#fff;margin-bottom:10px;display:none;">
-    Your file has been uploaded
+    <div class="alert">
   </div>
 
-  <style>
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-  </style>  
 
+<div>
+    <input class="input" type="text" size='35' style="text-transform: uppercase"id="inPutIndex" name="inPutIndex" placeholder="type index if not in the list ">
+    <button type="submit" class="block"onclick="AddIndex()">Add into Course List</button>
+  </div>
 
 
     
