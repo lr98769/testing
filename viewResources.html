@@ -110,11 +110,19 @@ var summitButton=document.getElementById('uploadButton');
 
 //create description.
 var p = document.createElement('p');
-p.innerHTML=notesinfo.message;
+var p2 = document.createElement('p');
+
+///////need to beatify the content.............#####################
+
+p.innerHTML="          "+notesinfo.message;
+p2.innerHTML="description"
+p2.setAttribute('style','font-weight:bold')
 
 
           courseContent.appendChild(a);
+          courseContent.appendChild(p2)
           courseContent.appendChild(p);
+        
 
     }
     }

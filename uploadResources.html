@@ -1,6 +1,9 @@
 
 <!-- search function is adapted from here 
-  https://github.com/Godsont/Custom-Select-Box -->
+  https://github.com/Godsont/Custom-Select-Box 
+https://stackoverflow.com/questions/572768/styling-an-input-type-file-button/25825731#25825731
+https://jsfiddle.net/gu01bmfh/1/
+-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,11 +19,22 @@
 </head>
 <body>
     <div class="mainDiv" align="center">
-		<progress id="uploader" value="0" max="100">0%</progress>
-    <input type="file" id="fileButton" value="upload"/></div>
+
+      
+
+      <label for="fileButton" class="custom-file-upload">
+        <i class="fa fa-cloud-upload"></i> Notes Upload
+    </label>
+    <input id="fileButton" value="upload" type="file"/>
+    <progress id="uploader" max="100" value="0">0%</progress>
+
+
+
     
-    <div align="center" ><textarea  name="message" rows="5" placeholder="write a short intro about your learning resources" id="message"></textarea> </div>
-    <div align="center"><input  type="text" size='35' id="title" name="title" placeholder=" title ">
+    <input type="file" size=60 id="fileButton" value="upload"/></div>
+    
+    <div ><textarea class="input" name="message" rows="5" placeholder="write a short intro about your learning resources" id="message" required></textarea> </div>
+    <div ><input class="input" type="text" size='35' id="title" name="title" placeholder=" title for your file " required>
     </div>
 
     <div align="center">
@@ -46,15 +60,15 @@
       </div>
     </div>
 
-    <button type="button" id="uploadButton" class=" btn-primary" onclick="uploadFile(); return false;">SUBMIT</button>
+    <button type="button" id="uploadButton" class="block" onclick="uploadFile(); return false;">SUBMIT</button>
     <!-- button id is given so we only show button after file is being uploaded -->
-    <div class="alert" style="text-align: center; padding:10px; background:#79c879;color:#fff;margin-bottom:10px;display:none;">
-    Your file has been uploaded</div>
+    <div class="alert">
+  </div>
 
 
 <div>
-    <input type="text" size='35' style="text-transform: uppercase"id="inPutIndex" name="inPutIndex" placeholder="type index if not in the list ">
-    <button type="submit" onclick="AddIndex()">Add into courseList</button>
+    <input class="input" type="text" size='35' style="text-transform: uppercase"id="inPutIndex" name="inPutIndex" placeholder="type index if not in the list ">
+    <button type="submit" class="block"onclick="AddIndex()">Add into Course List</button>
   </div>
 
 

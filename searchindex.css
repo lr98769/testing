@@ -19,7 +19,8 @@ h2 {
 .select-box {
   position: relative;
   display: flex;
-  width: 400px;
+  width: 80%;
+  margin:0px,0px,1px,1px;
   flex-direction: column;
 }
 
@@ -39,7 +40,7 @@ h2 {
 .selected {
   background: #2f3640;
   border-radius: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 0px;
   color: #f5f6fa;
   position: relative;
 
@@ -126,4 +127,97 @@ h2 {
 .select-box .options-container.active ~ .search-box input {
   opacity: 1;
   pointer-events: auto;
+}
+.block {
+  display: block;
+  width: 90%;
+  border: none;
+  background-color: rgb(247, 121, 4);
+  padding: 12px 24px;
+  font-size: 16px;
+  margin:auto;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  
+}
+.alert{
+  display:block;
+  text-align: center; 
+  width:90% ;
+  margin:auto;
+  background:#06ec06;
+  color:#fff;
+  margin-bottom:1px;
+  border-radius: 8px;
+}
+
+
+
+
+.input
+{
+  display: block;
+  width: 90%;
+  border:black;
+  border-color: black;
+  border-radius: 8px;
+  margin:auto;
+  margin-top: 10px;
+  margin-bottom: 3px;
+  padding:8px;
+
+}
+
+input[type="file"] {
+  display: none;
+}
+.custom-file-upload {
+  width:90%;
+  margin:auto;
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: coral;
+}
+
+
+progress {
+	display:inline-block;
+	width:190px;
+	height:20px;
+	padding:15px 0 0 0;
+	margin:0;
+	background:none;
+	border: 0;
+	border-radius: 15px;
+	text-align: left;
+	position:relative;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+}
+progress::-webkit-progress-bar {
+	height:11px;
+	width:150px;
+	margin:0 auto;
+	background-color: #CCC;
+	border-radius: 15px;
+	box-shadow:0px 0px 6px #777 inset;
+}
+progress::-webkit-progress-value {
+	display:inline-block;
+	float:left;
+	height:11px;
+	margin:0px -10px 0 0;
+	background: #F70;
+	border-radius: 15px;
+	box-shadow:0px 0px 6px #666 inset;
+}
+progress:after {
+	margin:-26px 0 0 -7px;
+	padding:0;
+	display:inline-block;
+	float:left;
 }

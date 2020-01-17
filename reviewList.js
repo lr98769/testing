@@ -22,10 +22,6 @@ console.log(keys);
 for (var i=0;i<keys.length;i++) //no. of entries
 {
 
-          // 1.NameStu
-          // 2.CourseIndex
-          // 3.StudyTips
-          // 4.LecRev
     var k=keys[i];
     var NameStu=scores[k].name;
     var CourseIndex=scores[k].index;
