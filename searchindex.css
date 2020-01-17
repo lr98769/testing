@@ -208,7 +208,7 @@ progress::-webkit-progress-bar {
 }
 progress::-webkit-progress-value {
 	display:inline-block;
-	float:left;
+	float: left;
 	height:11px;
 	margin:0px -10px 0 0;
 	background: #F70;
@@ -219,5 +219,5 @@ progress:after {
 	margin:-26px 0 0 -7px;
 	padding:0;
 	display:inline-block;
-	float:left;
+	float: left;
 }
