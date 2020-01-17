@@ -108,17 +108,24 @@ var summitButton=document.getElementById('uploadButton');
       a.setAttribute("download",notesinfo.title);
       a.innerHTML = notesinfo.title;
 
+//create title
+var t = document.createElement('p');
+
 //create description.
 var p = document.createElement('p');
 var p2 = document.createElement('p');
 
 ///////need to beatify the content.............#####################
+t.innerHTML = notesinfo.title;
+t.setAttribute("style", "text-transform: capitalize; font-weight: bold; font-size: 3vw; color:orange; font-family: Oswald;")
 
 p.innerHTML="          "+notesinfo.message;
-p2.innerHTML="description"
-p2.setAttribute('style','font-weight:bold')
 
+p2.innerHTML= "Description:"
+p2.setAttribute('style','font-weight:bold;font-family: Oswald;')
+p.setAttribute('style', 'border-style: solid; border-top:0; border-left: 0; border-right: 0; border-color: grey;padding-bottom: 2vw;font-family: Arial, Helvetica, sans-serif')
 
+          courseContent.appendChild(t);
           courseContent.appendChild(a);
           courseContent.appendChild(p2)
           courseContent.appendChild(p);

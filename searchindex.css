@@ -221,3 +221,32 @@ progress:after {
 	display:inline-block;
 	float: left;
 }
+
+.brand{
+  padding-top: 3vw;
+  background-size:100%;
+  font-size: 5vw;
+  line-height:1.6;
+  color: rgb(255, 94, 0);
+}
+
+.brand span{
+  color:rgba(255, 166, 0, 0.89)
+}
+
+.brand1{
+  font-size: 2.5vw ;
+}
+
+.wholething{
+  background-color:white;
+  margin: 7vw;
+}
+
+body{
+  background-color: orange;
+}
+
+.space{
+  height: 5vw;
+}
