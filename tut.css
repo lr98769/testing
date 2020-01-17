@@ -36,7 +36,7 @@
 
   h2.aboutMyself{
     padding: 0;
-    font-size: 3vw;
+    font-size: 1.5vw;
     color:rgba(255, 166, 0, 0.89);
     text-decoration: underline;
   }
@@ -52,7 +52,7 @@
 
   li{
     padding: 0.2vw;
-    font-size: 2.5vw;
+    font-size: 1vw;
   }
 
   input{
@@ -61,19 +61,24 @@
     height: 5%;
   }
 
-  @media(min-width:700px){
+  span.head{
+    font-weight: bold;
+  }
+
+  @media(max-width:700px){
     li{
-      font-size: 1vw;
+      font-size: 2.5vw;
       padding: 0.1vw;
     }
     h2.aboutMyself{
-      font-size: 1.5vw;
+      font-size: 3vw;
     }
     .border{
       padding-bottom:1vw;
     }
-    input{
 
+    input{
+      font-size: 5vw;
     }
     
   }

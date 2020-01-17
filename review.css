@@ -49,10 +49,61 @@
 
   input{
     margin-bottom: 1vw;
+    width: 100%;
   }
 
-  li.NameStu{
+  span.NameStu{
     color: orange;
+    font-size: 2.5vw;
+    font-weight: bold;
+  }
+
+  span.head{
+    font-weight: bold;
+  }
+
+  li.CourseIndexlist{
+    font-size: 1.5vw;
+  }
+  li.StudyTipslist{
+    font-size: 1.5vw;
+  }
+  
+  li.LecRevlist{
+    font-size: 1.5vw;
+  }
+
+  @media(max-width:700px){
+    li{
+      font-size: 1vw;
+      padding: 0.1vw;
+    }
+
+    .border{
+      padding-bottom:1vw;
+    }
+
+    input{
+      width: 100%;
+    }
+
+    span.NameStu{
+      color: orange;
+      font-size: 4vw;
+      font-weight: bold;
+    }
+
+    li.CourseIndexlist{
+      font-size: 2.5vw;
+    }
+    li.StudyTipslist{
+      font-size: 2.5vw;
+    }
+    
+    li.LecRevlist{
+      font-size: 2.5vw;
+    }
+    
   }
 
 

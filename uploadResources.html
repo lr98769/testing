@@ -18,6 +18,7 @@ https://jsfiddle.net/gu01bmfh/1/
   
 </head>
 <body>
+
     <div class="mainDiv" align="center">
 
       
@@ -43,33 +44,64 @@ https://jsfiddle.net/gu01bmfh/1/
         <div class="options-container" id="addable_container">
 
 
-          <div class="option">
-            <input type="radio" class="radio" id="travel" name="category" />
-            <label style="color:red">check your internet</label>
+
+  <div class="wrapper">
+      <div class="mainDiv" align="left">
+      <progress class = "uploader" id="uploader" value="0" max="100">0%</progress>
+      <input class = "choose"type="file" id="fileButton" value="upload"/></div>
+      
+      <div class="title" align="left"><label>Title:<img src="pictures/books.png" width=250 height=250 align="right"/></label>
+      <input type="text" name="title" id="title">   
+      <div class="descrip" align="left" ><textarea name="message" placeholder="write a short intro about your learning resources..." class="textinput" id="message"></textarea></div>
+  
+      <div align="left">
+  
+        <div class="select-box">
+          <div class="options-container" id="addable_container">
+            <div class="option">
+              <input type="radio" class="radio" id="CZ1007" name="category" />
+              <label>CZ1007</label>
+            </div>
+  
+            <div class="option">
+              <input type="radio" class="radio" id="travel" name="category" />
+              <label>Travel & Events</label>
+            </div>
+  
           </div>
-
+          
+          <div class="selected">
+            Select Courses Index
+          </div>
+  
+          <div class="search-box">
+            <input type="text" placeholder="Start Typing..." />
+          </div>
+  
         </div>
-        <div class="selected">
-          Select Courses Index
-        </div>
-
-        <div class="search-box">
-          <input type="text" placeholder="Start Typing..." />
-        </div>
-
       </div>
     </div>
+
 
     <button type="button" id="uploadButton" class="block" onclick="uploadFile(); return false;">SUBMIT</button>
     <!-- button id is given so we only show button after file is being uploaded -->
     <div class="alert">
+
   </div>
+
+  <style>
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>  
 
 
 <div>
     <input class="input" type="text" size='35' style="text-transform: uppercase"id="inPutIndex" name="inPutIndex" placeholder="type index if not in the list ">
     <button type="submit" class="block"onclick="AddIndex()">Add into Course List</button>
   </div>
+
 
 
     

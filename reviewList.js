@@ -41,6 +41,7 @@ for (var i=0;i<keys.length;i++) //no. of entries
     var sn2 = document.createElement("span");
     sn.textContent = span;
     sn2.textContent = text;
+    sn.className = "head";
     sn2.className = className;
     li.appendChild(sn);
     li.appendChild(sn2);
