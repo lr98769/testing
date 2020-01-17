@@ -6,6 +6,9 @@ var optionsList
 
 var file;
 var fileURL;
+var alertsign=document.querySelector('.alert')
+alertsign.style.display = 'block';
+
       var summitButton=document.getElementById('uploadButton');
       //summitButton.style.visibility='hidden'; // hide the submit button
       var config = {
@@ -19,6 +22,7 @@ var fileURL;
     measurementId: "G-Z48JHZJXX3"
 };
       firebase.initializeApp(config);
+      //summitButton.style.visibility='hidden';
 
 
       var MaterialRef = firebase.database().ref('learningMaterial');
@@ -117,6 +121,34 @@ summitButton.style.visibility='visible';
 function uploadFile()
 
 {
+  var message=document.getElementById('message').value;
+  var title=document.getElementById('title').value;
+
+  if(!document.getElementById('fileButton').value)
+  {
+alert("upload a file")
+return 
+  }
+
+  else if(message==null||message.length==0)
+  {
+alert("write something please")
+return
+
+  }
+  else if(title==null||title.length==0)
+  {
+    alert("include some title")
+  }
+
+  else
+  {
+
+
+  uploader.value=10;
+  
+  alertsign.innerHTML="Uploading..."
+  alertsign.style.display = 'block';
 
   var fileName=file.name;
 var storageRef = firebase.storage().ref('/resources'+fileName);
@@ -130,15 +162,16 @@ task.on('state_changed', function progress(snapshot) {
 
 },function complete() {
   console.log("ok it is done")
-  uploader.value=0;
-  document.querySelector('.alert').style.display = 'block';
+  uploader.value=100;
+  alertsign.innerHTML="Your file has been uploaded"
+  
   var message=document.getElementById('message').value;
 console.log(message)
 var title=document.getElementById('title').value;
 
   task.snapshot.ref.getDownloadURL().then(function(downloadURL) {
 fileURL=downloadURL
-summitButton.style.visibility='hidden'; 
+//summitButton.style.visibility='hidden'; 
 
 
 
@@ -172,7 +205,8 @@ var reference=firebase.database().ref('learningMaterial')
 // Hide alert after 3 seconds
 setTimeout(function(){
 document.querySelector('.alert').style.display = 'none';
-},3000);
+uploader.value=0;
+},2000);
 
 
 
@@ -187,6 +221,7 @@ document.getElementById('title').value="";
 
 
 });
+  }
 }
 
 
@@ -208,7 +243,7 @@ document.getElementById('title').value="";
   function AddIndex()
   {
     var newIndexLower=document.getElementById("inPutIndex").value;
-    if (newIndexLower==""|| newIndexLower==" ")
+    if (newIndexLower==""|| newIndexLower==" "||newIndexLower.length==0)
     {
       alert("must type in index number");
       return false;
